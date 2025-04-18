@@ -1,3 +1,6 @@
+// VERSION 0.5
+// VINTAGE CALC
+
 import { Component, HostListener, ResourceStatus } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
