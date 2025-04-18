@@ -1,4 +1,4 @@
-// VERSION 0.5
+// VERSION 0.6
 // VINTAGE CALC
 
 import { Component, HostListener, ResourceStatus } from '@angular/core'
@@ -163,6 +163,17 @@ result = ${this.result}`
       this.display += '.'
       return
     } else {
+      return
+    }
+  }
+
+  invertInteger() {
+    if (this.display.startsWith('-')) {
+      this.display = this.display.slice(1)
+      return
+    }
+    if (this.display !== '0' && !this.display.startsWith('-')) {
+      this.display = '-' + this.display
       return
     }
   }

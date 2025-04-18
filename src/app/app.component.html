@@ -5,30 +5,36 @@
     class="flex-col bg-gray-800 bg-opacity-75 backdrop-blur-md p-8 rounded-lg shadow-lg border border-gray-700 w-80"
   >
     <!-- Display -->
-    <div>
-      <div class="mb-2 pb-2">
+    <div class="grid grid-cols-4 gap-2 mb-0 pb-2 items-end">
+      <!-- Titles: Calculator & Powered by Angular -->
+      <div class="col-span-2">
         <h1 class="text-xl font-light text-slate-500">Calculator</h1>
-        <h2 class="text-xs font-thin text-slate-600 font-serif">
-          powered by <span class="text-sm font-light font-sans">Angular</span>
+        <h2 class="text-xs font-light text-slate-600 font-serif">
+          powered by <span class="text-sm font-medium font-sans">Angular</span>
         </h2>
       </div>
-      <input
-        type="text"
-        [value]="display"
-        readonly
-        class="w-full px-4 py-2 rounded-md bg-slate-700 text-gray-300 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
+      <!-- calcStatus aligned to the bottom (hugging input) -->
+      <div class="col-span-2 text-right self-end">
+        <span class="text-sm font-thin text-gray-600">{{ calcStatus }}</span>
+      </div>
     </div>
+    <!-- Input Field -->
+    <input
+      type="text"
+      [value]="display"
+      readonly
+      class="w-full px-4 py-2 rounded-md bg-slate-700 text-gray-300 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
 
     <!-- Clear/Clear-All Buttons -->
-    <div class="grid grid-cols-4 gap-2 mt-4 text-xs mb-0 pb-0">
-      <!-- Current Operation Display -->
-      <div
-        [ngClass]="{ blink: blinkDisplay }"
-        class="mt-1 text-gray-300 flex justify-center items-center gap-3 col-span-2"
+    <div class="grid grid-cols-4 gap-2 mt-2 text-xs mb-0 pb-0">
+      <div class="col-span-1"></div>
+      <button
+        class="h-6 bg-slate-900 hover:bg-pink-800 text-white rounded shadow-sm active:translate-y-[1px]"
+        (click)="invertInteger()"
       >
-        <span class="text-xs font-thin text-slate-600 font-serif"> {{ calcStatus }}</span>
-      </div>
+        -/+
+      </button>
       <button
         class="h-6 bg-slate-900 hover:bg-pink-800 text-white rounded shadow-sm active:translate-y-[1px]"
         (click)="clearAll()"
