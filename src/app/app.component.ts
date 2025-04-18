@@ -73,6 +73,7 @@ result = ${this.result}`
     }
     if (this.operatorPressed || this.equalsPressed) {
       this.secondValue = null
+      this.equalsPressed = false
       this.calcStatus = `${this.firstValue} ${this.operator}`
       this.operatorPressed = true
       console.log('loop case')
