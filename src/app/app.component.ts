@@ -109,12 +109,16 @@ result = ${this.result}`
         break
     }
     if (this.result === null) return
+    if (!this.result && this.result !== 0) {
+      this.result = 0
+    }
 
     //converts result to string for rendering to display
     let resultString = this.result.toString()
     if (resultString.length > 23) {
       resultString = resultString.slice(1) // Remove the first character
     }
+
     //renders to display
     this.display = resultString
     console.log('report:     ' + this.report)
