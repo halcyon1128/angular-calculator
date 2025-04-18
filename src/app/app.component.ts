@@ -118,7 +118,9 @@ result = ${this.result}`
     if (resultString.length > 23) {
       resultString = resultString.slice(1) // Remove the first character
     }
-
+    if ((resultString = 'Infinity')) {
+      resultString = '0'
+    }
     //renders to display
     this.display = resultString
     console.log('report:     ' + this.report)
