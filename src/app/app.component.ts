@@ -28,10 +28,10 @@ result = ${this.result}`
 
   appendToDisplay(num: string) {
     // assumes operator isnt pressed
-    if (this.display === '0' || this.operatorPressed) {
+    if ((this.display === '0' || this.operatorPressed) && !this.equalsPressed) {
       this.operatorPressed = false
       this.display = num
-      console.log(`operator btn pressed = ${this.operatorPressed}`)
+      console.log(`reset case`)
       return
     }
     // equals is pressed
@@ -39,6 +39,7 @@ result = ${this.result}`
       this.clearAll()
       this.result = null
       this.display = num
+      console.log(`equals case`)
       return
     }
     // "default"
@@ -109,7 +110,7 @@ result = ${this.result}`
         break
     }
     if (this.result === null) return
-    if (!this.result && this.result !== 0) {
+    if (!isFinite(this.result)) {
       this.result = 0
     }
 
@@ -118,9 +119,7 @@ result = ${this.result}`
     if (resultString.length > 23) {
       resultString = resultString.slice(1) // Remove the first character
     }
-    if ((resultString = 'Infinity')) {
-      resultString = '0'
-    }
+
     //renders to display
     this.display = resultString
     console.log('report:     ' + this.report)
